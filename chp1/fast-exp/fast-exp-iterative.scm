@@ -1,0 +1,10 @@
+(define (fast-exp b n)
+  	(define (fast-exp-iter b n result)
+	  	(cond ((= n 0) result)
+			  ((= (remainder n 2) 0) (fast-exp-iter (square b) (/ n 2) result))
+			  (else (fast-exp-iter b (- n 1) (* result b)))
+		)
+	)
+
+  	(fast-exp-iter b n 1)
+)
